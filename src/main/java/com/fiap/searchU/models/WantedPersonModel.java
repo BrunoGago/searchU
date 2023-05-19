@@ -1,16 +1,20 @@
-package com.fiap.searchU.model;
+package com.fiap.searchU.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fiap.searchU.enums.GenderType;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
 @Table(name = "TB_WANTED")
-public class WantedPersonModel {
+public class WantedPersonModel implements Serializable {
+
+    public static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +26,9 @@ public class WantedPersonModel {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthdate;
 
-    @Column(length = 1, nullable = false)
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender", nullable = false, unique = true, length = 1)
+    private GenderType gender;
 
     @Column(length = 11, nullable = false)
     private String cpf;
