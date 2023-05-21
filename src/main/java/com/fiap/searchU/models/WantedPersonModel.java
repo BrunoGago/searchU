@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@Entity
 @Table(name = "TB_WANTED")
 public class WantedPersonModel implements Serializable {
 
@@ -27,7 +28,7 @@ public class WantedPersonModel implements Serializable {
     private LocalDate birthdate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "gender", nullable = false, unique = true, length = 1)
+    @Column(name = "gender", nullable = false, length = 1)
     private GenderType gender;
 
     @Column(length = 11, nullable = false)
