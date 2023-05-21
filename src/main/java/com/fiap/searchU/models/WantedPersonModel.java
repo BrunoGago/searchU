@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@Entity
 @Table(name = "TB_WANTED")
 public class WantedPersonModel implements Serializable {
 
