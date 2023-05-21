@@ -32,6 +32,4 @@ public class CrimeController {
 		CrimeModel crime = service.findCrimeById(id);
 		return ResponseEntity.ok().body(crime);
 	}
-	
-
 }
