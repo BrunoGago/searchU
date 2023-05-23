@@ -1,6 +1,7 @@
 package com.fiap.searchU.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,14 +20,12 @@ public class CrimeServiceImpl implements CrimeService {
 	@Override
 	@Transactional
 	public List<CrimeModel> findAllCrimes() {
-		List<CrimeModel> list = crimeRepository.findAll();
-		return list;
+		return crimeRepository.findAll();
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
-	public CrimeModel findCrimeById(Long id) {
-		CrimeModel crime = crimeRepository.getById(id);
+	public Optional<CrimeModel> findCrimeById(Long id) {
+		Optional<CrimeModel> crime = crimeRepository.findById(id);
 		return crime;
 	}
 }
