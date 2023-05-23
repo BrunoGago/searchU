@@ -1,6 +1,7 @@
 package com.fiap.searchU.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,13 +24,12 @@ public class CrimeController {
 	
 	@GetMapping
 	public ResponseEntity<List<CrimeModel>> findAllCrimes(){
-		List<CrimeModel> list = service.findAllCrimes();
-		return ResponseEntity.ok().body(list);
+		return ResponseEntity.ok().body(service.findAllCrimes());
 	}
 	
 	@GetMapping("{id}")
-	public ResponseEntity<CrimeModel> findCrimeById(@PathVariable Long id) {
-		CrimeModel crime = service.findCrimeById(id);
+	public ResponseEntity<Optional<CrimeModel>> findCrimeById(@PathVariable Long id) {
+		Optional<CrimeModel> crime = service.findCrimeById(id);
 		return ResponseEntity.ok().body(crime);
 	}
 }

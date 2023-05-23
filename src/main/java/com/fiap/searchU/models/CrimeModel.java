@@ -1,9 +1,14 @@
 package com.fiap.searchU.models;
 
-import jakarta.persistence.*;
-import lombok.Data;
-
 import java.io.Serializable;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
 
 @Data
 @Entity
@@ -11,7 +16,7 @@ import java.io.Serializable;
 public class CrimeModel implements Serializable {
 
     public static final long serialVersionUID = 1L;
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long crimesId;

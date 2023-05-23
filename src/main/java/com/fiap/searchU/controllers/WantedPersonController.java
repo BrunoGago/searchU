@@ -1,6 +1,7 @@
 package com.fiap.searchU.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,8 @@ public class WantedPersonController {
 	}
 	
 	@GetMapping("{id}")
-	public ResponseEntity<WantedPersonModel> findPersonById(@PathVariable Long id) {
-		WantedPersonModel person = service.findPersonById(id);
+	public ResponseEntity<Optional<WantedPersonModel>> findPersonById(@PathVariable Long id) {
+		Optional<WantedPersonModel> person = service.findPersonById(id);
 		return ResponseEntity.ok().body(person);
 	}
 	
